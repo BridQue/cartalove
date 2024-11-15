@@ -1,0 +1,107 @@
+body {
+    background-color: #ffe6e6; /* Fondo rosado claro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    flex-direction: column; /* Para centrar todo verticalmente */
+}
+
+.container {
+    text-align: center;
+    position: relative;
+}
+
+.carta {
+    width: 200px;
+    height: 140px;
+    background-color: #ffc0cb; /* Rosa claro */
+    border: 2px solid #ff4d4d;
+    border-radius: 10px;
+    position: relative;
+    margin: 20px auto;
+    perspective: 1000px;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+}
+
+.carta .frente {
+    width: 100%;
+    height: 100%;
+    background-color: #ffc0cb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-style: preserve-3d;
+}
+
+.corazon-grande {
+    font-size: 50px;
+    color: #ff4d4d;
+}
+
+.hoja {
+    width: 180px;
+    height: 100px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    position: absolute;
+    top: -20px;
+    left: 10px;
+    padding: 10px;
+    overflow: hidden; /* Para mantener el texto dentro de la hoja */
+    z-index: 10;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    display: none; /* Oculto por defecto */
+}
+
+.hoja.visible {
+    display: block; /* Mostrar cuando se abre la carta */
+    animation: desplegar 0.5s ease-out;
+}
+
+/* Imagen que aparecerá debajo de los botones */
+.imagen-exterior {
+    margin-top: 20px;
+    max-width: 100%;
+    height: auto;
+    opacity: 0; /* Oculta inicialmente */
+    transition: opacity 0.5s ease-in-out;
+}
+
+.imagen-exterior.visible {
+    opacity: 1; /* Mostrar imagen cuando la carta esté abierta */
+}
+
+@keyframes desplegar {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.botones {
+    margin-top: 20px;
+}
+
+.botones button {
+    margin: 0 5px;
+    padding: 10px 20px;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.botones button:hover {
+    background-color: #e60000;
+}
+
